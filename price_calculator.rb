@@ -71,4 +71,4 @@ def calculate_price(input)
 end
 
 #call the method with input/order
-calculate_price("milk,milk, bread,banana,bread,bread,bread,milk,apple")
+calculate_price("milk,milk, bread,  banana,bread,bread,bread,milk,apple")
