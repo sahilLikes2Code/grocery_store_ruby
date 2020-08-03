@@ -1,10 +1,26 @@
-#please install the gem via the command (gem install terminal-table)
+#please install the gem via entering the following command in terminal:- gem install terminal-table
 require "terminal-table"
 
 #define method
-def calculate_price(input)
+def calculate_price
+  puts "Please enter all the items purchased separated by a comma"
+  #get user input and store it in a variable
+  all_items = gets.chomp
   #remove white space from input and split it into an array
-  all_items_arr = input.gsub(" ", "").split(",")
+  all_items_arr = all_items.gsub(" ", "").split(",")
+  #array of all valid items, will be used to check if items entered are valid or not
+  valid_items_arr = ["milk", "bread", "apple", "banana"]
+
+  #check if all items entered are valid or not
+  for item in all_items_arr
+    if valid_items_arr.include?(item)
+      next
+    else
+      puts "please recheck the items purchased, one or more items entered is invalid"
+      return
+    end
+  end
+  # puts all_items_arr
   #make another array with unique elements from the previous step
   uniq_items_arr = all_items_arr.uniq
   #store the regular price of different items in a Ruby hash
@@ -71,4 +87,4 @@ def calculate_price(input)
 end
 
 #call the method with input/order
-calculate_price("milk,milk, bread,  banana,bread,bread,bread,milk,apple")
+calculate_price
